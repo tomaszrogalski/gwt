@@ -63,8 +63,8 @@ public class DodajKlientaView extends Composite implements DodajKlientaDisplay, 
 
 	@UiField
 	Button buttonDodaj;
-	
-	private DodajKlientaPresenter  presenter;
+
+	private DodajKlientaPresenter presenter;
 
 	public Widget asWidget() {
 		return this;
@@ -92,6 +92,7 @@ public class DodajKlientaView extends Composite implements DodajKlientaDisplay, 
 		KlientDTO klientDTO = driver.flush();
 		return klientDTO;
 	}
+
 	@Override
 	public void setPresenter(DodajKlientaPresenter presenter) {
 		this.presenter = presenter;
@@ -100,12 +101,14 @@ public class DodajKlientaView extends Composite implements DodajKlientaDisplay, 
 
 	@UiHandler("buttonDodaj")
 	void dodajClick(ClickEvent e) {
+
+		presenter.onDodajKlientaButtonClicked();
 		removeFromParent();
-		
-		// if (waliduj()) {
-		// getUiHandlers().buttonAkcjaDodajKlienta();
-		// driver.edit(new KlientDTO(null, null, new AdresDTO(null, null, null,
-		// null)));
 	}
+
+	// if (waliduj()) {
+	// getUiHandlers().buttonAkcjaDodajKlienta();
+	// driver.edit(new KlientDTO(null, null, new AdresDTO(null, null, null,
+	// null)));
 
 }

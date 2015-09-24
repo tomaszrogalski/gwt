@@ -123,6 +123,7 @@ public class DodajProduktView extends Composite implements DodajProduktDisplay, 
 	
 	@UiHandler("buttonDodaj")
 	void dodajClick(ClickEvent e) {
+		presenter.onDodajProduktButtonClicked();
 		removeFromParent();
 //		if (waliduj()) {
 //			getUiHandlers().buttonAkcjaDodajProdukt();

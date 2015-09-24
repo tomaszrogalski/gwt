@@ -7,13 +7,13 @@
 
   <!-- Servlets -->
   <servlet>
-    <servlet-name>greetServlet</servlet-name>
+    <servlet-name>powitanieServlet</servlet-name>
     <servlet-class>rogalski.server.FakturowanieServiceImpl</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>greetServlet</servlet-name>
-    <url-pattern>/fakturowaniegwt/greet</url-pattern>
+    <servlet-name>powitanieServlet</servlet-name>
+    <url-pattern>/fakturowaniegwt/fakturowanie</url-pattern>
   </servlet-mapping>
   
   <!-- Default page to serve -->

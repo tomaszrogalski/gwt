@@ -22,9 +22,6 @@ import com.google.gwt.view.client.DefaultSelectionEventManager;
 import com.google.gwt.view.client.MultiSelectionModel;
 import com.google.gwt.view.client.SingleSelectionModel;
 
-import rogalski.client.presenter.HomePresenter;
-import rogalski.client.presenter.MenuPresenter;
-import rogalski.client.presenter.WyswietlPozycjePresenter;
 import rogalski.client.presenter.DodajFakturePresenter;
 import rogalski.client.presenter.DodajFakturePresenter.DodajFaktureDisplay;
 import rogalski.shared.dto.FakturaDTO;
@@ -270,6 +267,8 @@ public class DodajFaktureView extends Composite implements DodajFaktureDisplay {
 
 	@UiHandler("buttonDodajNowaFakture")
 	void dodajFakture(ClickEvent e) {
+		presenter.onDodajFaktureButtonClicked();
+		removeFromParent();
 //		if (waliduj()) {
 //			getUiHandlers().buttonAkcjaDodajFakture();
 //			errorLabel.setText("");
@@ -285,12 +284,12 @@ public class DodajFaktureView extends Composite implements DodajFaktureDisplay {
 		return htmlPanelDodajPozycje;
 	}
 
-	private boolean waliduj() {
-		if (simpleSelectionModel.getSelectedObject() != null && !multiSelectionModel.getSelectedSet().isEmpty()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+//	private boolean waliduj() {
+//		if (simpleSelectionModel.getSelectedObject() != null && !multiSelectionModel.getSelectedSet().isEmpty()) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
 
 }

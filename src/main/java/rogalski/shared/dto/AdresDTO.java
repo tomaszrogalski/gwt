@@ -1,9 +1,16 @@
 package rogalski.shared.dto;
 
+import java.io.Serializable;
+
 import rogalski.server.model.Adres;
 
-public class AdresDTO {
-//	@NotNull(message = "Kod pocztowy nie może być pusty.")
+public class AdresDTO implements Serializable{
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	//	@NotNull(message = "Kod pocztowy nie może być pusty.")
 	private String kodPocztowy;
 
 	private String ulica;

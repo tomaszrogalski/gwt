@@ -1,9 +1,16 @@
 package rogalski.shared.dto;
 
+import java.io.Serializable;
+
 import rogalski.server.model.Produkt;
 import rogalski.server.model.Usluga;
 
-public class PozycjaDTO {
+public class PozycjaDTO implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private Long id;
 

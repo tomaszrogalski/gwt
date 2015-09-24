@@ -1,10 +1,16 @@
 package rogalski.shared.dto;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-public class UslugaDTO {
+public class UslugaDTO implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@NotNull(message = "Cena/h nie może być pusta. ")
 	@Min(value = 0, message = "Cena/h musi być cyfra > 0. ")
 	private Double cenaZaGodzine;

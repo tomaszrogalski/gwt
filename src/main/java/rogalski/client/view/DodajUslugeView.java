@@ -81,6 +81,7 @@ public class DodajUslugeView extends Composite implements DodajUslugeDisplay, Ed
 
 	@UiHandler("buttonDodaj")
 	void dodajClick(ClickEvent e) {
+		presenter.onDodajUslugeButtonClicked();
 		removeFromParent();
 	}
 //		if (waliduj()) {

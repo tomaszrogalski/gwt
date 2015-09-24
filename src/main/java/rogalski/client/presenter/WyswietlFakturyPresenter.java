@@ -25,7 +25,6 @@ public class WyswietlFakturyPresenter implements Presenter {
 		this.eventBus = eventBus;
 		this.display = display;
 		this.display.setPresenter(this);
-
 	}
 
 	@Override

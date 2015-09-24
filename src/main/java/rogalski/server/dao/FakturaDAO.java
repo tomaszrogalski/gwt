@@ -8,12 +8,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import Fakturowanie.server.model.Faktura;
-import Fakturowanie.server.model.Pozycja;
-import Fakturowanie.server.model.Produkt;
-import Fakturowanie.server.model.Usluga;
-import Fakturowanie.shared.dto.FakturaDTO;
-import Fakturowanie.shared.dto.PozycjaDTO;
+import rogalski.server.model.Faktura;
+import rogalski.server.model.Pozycja;
+import rogalski.server.model.Produkt;
+import rogalski.server.model.Usluga;
+import rogalski.shared.dto.FakturaDTO;
+import rogalski.shared.dto.PozycjaDTO;
 
 @Stateless
 public class FakturaDAO {

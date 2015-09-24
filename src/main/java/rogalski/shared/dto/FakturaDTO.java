@@ -1,12 +1,18 @@
 package rogalski.shared.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import rogalski.server.model.Faktura;
 import rogalski.server.model.Pozycja;
 
-public class FakturaDTO {
+public class FakturaDTO implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private Long nrFaktury;
 

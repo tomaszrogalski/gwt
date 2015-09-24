@@ -1,9 +1,16 @@
 package rogalski.shared.dto;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-public class ProduktDTO {
+public class ProduktDTO  implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@NotNull(message = "Cena nie może być pusta. ")
 	@Min(value = 0, message = "Cena musi być cyfra > 0. ")

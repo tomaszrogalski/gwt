@@ -1,19 +1,23 @@
 package rogalski.shared.dto;
 
+import java.io.Serializable;
 import java.util.List;
-
-import javax.validation.constraints.NotNull;
 
 import rogalski.server.model.Klient;
 
-public class KlientDTO {
+public class KlientDTO implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private Long id;
 
-	@NotNull(message = "Imie nie może być puste.")
+//	@NotNull(message = "Imie nie może być puste.")
 	private String imie;
 
-	@NotNull(message = "Nazwisko nie może być puste.")
+//	@NotNull(message = "Nazwisko nie może być puste.")
 	private String nazwisko;
 
 	private AdresDTO adresDTO;
