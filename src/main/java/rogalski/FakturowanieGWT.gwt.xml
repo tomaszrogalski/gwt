@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  
+<module rename-to='fakturowaniegwt'>
+
+	<inherits name='com.google.gwt.user.User' />
+	<inherits name='com.google.gwt.user.theme.dark.Dark' />
+	
+	<entry-point class='rogalski.client.FakturowanieGWT' />
+		<set-property name="user.agent" value="gecko1_8" />
+	<source path='client' />
+	<source path='shared' />
+	
+	<add-linker name="xsiframe" />
+	
+</module>

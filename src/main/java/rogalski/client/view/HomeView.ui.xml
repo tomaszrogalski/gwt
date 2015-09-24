@@ -1,0 +1,18 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:my="urn:import:rogalski.client.view">
+	
+	<g:HTMLPanel>
+		<h1>
+			FAKTUROWANIE
+		</h1>
+		<hr />
+
+		<g:HorizontalPanel>
+			<g:HTMLPanel ui:field="panelMenu" />
+			<g:HTMLPanel ui:field="htmlPanelRoboczy" />
+		</g:HorizontalPanel>
+		<g:Button text="WYŚWIETL KLIENTÓW" ui:field="buttonWyswietlKlientow" />
+<g:TextBox ui:field="textBoxNazwa" />
+	</g:HTMLPanel>
+</ui:UiBinder> 

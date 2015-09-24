@@ -1,0 +1,42 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<g:HTMLPanel>
+		<h1>DODAJ PRODUKT</h1>
+		<hr />
+
+		<g:HorizontalPanel>
+			<g:Label text="NAZWA" />
+			<g:TextBox ui:field="textBoxNazwa" />
+		</g:HorizontalPanel>
+
+		<g:HorizontalPanel>
+			<g:Label text="CENA" />
+			<g:DoubleBox ui:field="doubleBoxCena" />
+			<g:Label text="ZŁ" />
+		</g:HorizontalPanel>
+
+		<g:HorizontalPanel>
+			<g:Label text="JEDNOSTKA" />
+			<g:ValueListBox ui:field="valueListBoxJednostka" />
+		</g:HorizontalPanel>
+
+		<g:HorizontalPanel>
+			<g:Label text="VAT" />
+			<g:DoubleBox ui:field="doubleBoxVAT" />
+			<g:Label text="%" />
+		</g:HorizontalPanel>
+
+		<g:HorizontalPanel>
+			<g:Label text="" ui:field="errorLabel" />
+		</g:HorizontalPanel>
+
+		<hr />
+
+		<g:HorizontalPanel>
+			<g:Button text="DODAJ" ui:field="buttonDodaj" />
+		</g:HorizontalPanel>
+		<br />
+
+	</g:HTMLPanel>
+</ui:UiBinder> 

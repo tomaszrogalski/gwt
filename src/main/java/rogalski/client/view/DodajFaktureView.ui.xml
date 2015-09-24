@@ -1,0 +1,29 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:c="urn:import:com.google.gwt.user.cellview.client" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<g:HTMLPanel>
+		<h1>DODAJ FAKTURE</h1>
+		<hr />
+
+		<c:DataGrid ui:field="dataGridListaPozycji" />
+		<hr />
+
+		<c:DataGrid ui:field="dataGridListaKlientow" />
+
+		<g:HorizontalPanel>
+			<g:Label text="" ui:field="errorLabel" />
+		</g:HorizontalPanel>
+		<hr />
+
+		<g:HorizontalPanel>
+			<g:Button text="DODAJ PRODUKT" ui:field="buttonDodajNowyProdukt" />
+			<g:Button text="DODAJ USLUGE" ui:field="buttonDodajNowaUsluge" />
+			<g:Button text="DODAJ FAKTURE" ui:field="buttonDodajNowaFakture" />
+		</g:HorizontalPanel>
+		<br />
+
+		<g:HTMLPanel ui:field="htmlPanelDodajPozycje">
+		</g:HTMLPanel>
+	</g:HTMLPanel>
+</ui:UiBinder>
