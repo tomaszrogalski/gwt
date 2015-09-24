@@ -1,7 +1,6 @@
 package rogalski.client.view;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.editor.client.Editor.Path;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -23,18 +22,11 @@ public class HomeView extends Composite implements HomeDisplay {
 	interface HomeViewUiBinder extends UiBinder<Widget, HomeView> {
 	}
 
-	// MenuView panelMenu;
 	@UiField
 	HTMLPanel panelMenu;
 
 	@UiField
 	HTMLPanel htmlPanelRoboczy;
-
-	@UiField
-	Button buttonWyswietlKlientow;
-	
-	@UiField
-	TextBox textBoxNazwa;
 
 	private HomePresenter presenter;
 
@@ -48,16 +40,6 @@ public class HomeView extends Composite implements HomeDisplay {
 
 	public HTMLPanel getHtmlPanelRoboczy() {
 		return htmlPanelRoboczy;
-	}
-
-	@UiHandler("buttonWyswietlKlientow")
-
-	void wyswietlKlientow(ClickEvent e) {
-		if (presenter != null) {
-			presenter.onWyswietlKlientowButtonClicked();
-		} else {
-			Window.alert("JEDNAK JEST NULL");
-		}
 	}
 
 	@Override

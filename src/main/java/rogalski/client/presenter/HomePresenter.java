@@ -1,41 +1,36 @@
 package rogalski.client.presenter;
 
 import com.google.gwt.event.shared.HandlerManager;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
-import com.sun.java.swing.plaf.windows.resources.windows;
 
-import rogalski.client.GreetingServiceAsync;
-import rogalski.client.event.StworzMenuPresenterEvent;
+import rogalski.client.FakturowanieServiceAsync;
 
 public class HomePresenter implements Presenter {
 
 	public interface HomeDisplay {
 		public Widget asWidget();
 
+		public HTMLPanel getHtmlPanelRoboczy();
+
 		public HTMLPanel getPanelMenu();
 
-		public HTMLPanel getHtmlPanelRoboczy();
-		public void setPresenter(HomePresenter presenter) ;
+		public void setPresenter(HomePresenter presenter);
 
 	}
 
-	private final GreetingServiceAsync rpcService;
+	private final FakturowanieServiceAsync rpcService;
 	private final HandlerManager eventBus;
 	private final HomeDisplay display;
 
-	public HomePresenter(GreetingServiceAsync rpcService, HandlerManager eventBus, HomeDisplay display) {
+	public HomePresenter(FakturowanieServiceAsync rpcService, HandlerManager eventBus, HomeDisplay display) {
 		super();
 		this.rpcService = rpcService;
 		this.eventBus = eventBus;
 		this.display = display;
 		this.display.setPresenter(this);
-//		eventBus.fireEvent(new StworzMenuPresenterEvent());
 	}
-
-	// HandlerRegistration
 
 	@Override
 	public void go(HasWidgets container) {
@@ -45,22 +40,22 @@ public class HomePresenter implements Presenter {
 	}
 
 	public void dodajDoPaneluMenu(Widget widget) {
-		
+
 		this.display.getPanelMenu().add(widget);
 	}
-	
-	public void onWyswietlKlientowButtonClicked() {
-		eventBus.fireEvent(new StworzMenuPresenterEvent());
-	}
-
 
 	public HomeDisplay getDisplay() {
 		return display;
 	}
 
-	public void dodajDoPanelu2(Widget widget) {
-		this.display.getHtmlPanelRoboczy().add(widget);
-		
+	public void dodajDoPaneluRoboczego(Widget widget) {
+		if (!this.display.getHtmlPanelRoboczy().equals(widget)) {
+			czyscPanelRoboczy();
+			this.display.getHtmlPanelRoboczy().add(widget);
+		}
 	}
 
+	private void czyscPanelRoboczy() {
+		this.display.getHtmlPanelRoboczy().clear();
+	}
 }

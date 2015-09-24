@@ -3,6 +3,8 @@ package rogalski.server.model;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+import rogalski.shared.dto.AdresDTO;
+
 @Embeddable
 public class Adres {
 
@@ -46,7 +48,7 @@ public class Adres {
 		super();
 	}
 
-//	public AdresDTO stworzAdresDTO() {
-//		return new AdresDTO(getKodPocztowy(), getUlica(), getNrDomu(), getMiejscowosc());
-//	}
+	public AdresDTO stworzAdresDTO() {
+		return new AdresDTO(getKodPocztowy(), getUlica(), getNrDomu(), getMiejscowosc());
+	}
 }

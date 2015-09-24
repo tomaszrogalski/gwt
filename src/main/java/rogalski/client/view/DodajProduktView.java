@@ -21,6 +21,8 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.ValueListBox;
 import com.google.gwt.user.client.ui.Widget;
 
+import rogalski.client.presenter.MenuPresenter;
+import rogalski.client.presenter.DodajProduktPresenter;
 import rogalski.client.presenter.DodajProduktPresenter.DodajProduktDisplay;
 import rogalski.shared.dto.Jednostka;
 import rogalski.shared.dto.PozycjaDTO;
@@ -71,6 +73,9 @@ public class DodajProduktView extends Composite implements DodajProduktDisplay, 
 	@UiField
 	@Ignore
 	Label errorLabel;
+	
+	private DodajProduktPresenter presenter;
+
 
 	public Widget asWidget() {
 		return this;
@@ -110,10 +115,15 @@ public class DodajProduktView extends Composite implements DodajProduktDisplay, 
 		return pozycjaDTO;
 	}
 
+	@Override
+	public void setPresenter(DodajProduktPresenter presenter) {
+		this.presenter = presenter;
+
+	}
+	
 	@UiHandler("buttonDodaj")
 	void dodajClick(ClickEvent e) {
-		
-		Window.alert("NIE DZIA£AM");
+		removeFromParent();
 //		if (waliduj()) {
 //			getUiHandlers().buttonAkcjaDodajProdukt();
 //			driver.edit(new PozycjaDTO(null, null, new ProduktDTO(null, null)));

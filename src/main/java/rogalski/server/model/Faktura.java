@@ -14,6 +14,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import rogalski.shared.dto.FakturaDTO;
+import rogalski.shared.dto.PozycjaDTO;
+
 @Entity
 @Table(name = "faktura", schema = "fakturowanie")
 public class Faktura {
@@ -64,10 +67,10 @@ public class Faktura {
 		super();
 	}
 
-	// public FakturaDTO stworzFaktureDTO(List<PozycjaDTO> listaPozycjiDTO) {
-	// FakturaDTO fakturaDTO = new FakturaDTO(getNrFaktury(),
-	// getKlient().stworzKlientaDTO());
-	// fakturaDTO.setListaPozycjiDTO(listaPozycjiDTO);
-	// return fakturaDTO;
-	// }
+	 public FakturaDTO stworzFaktureDTO(List<PozycjaDTO> listaPozycjiDTO) {
+	 FakturaDTO fakturaDTO = new FakturaDTO(getNrFaktury(),
+	 getKlient().stworzKlientaDTO());
+	 fakturaDTO.setListaPozycjiDTO(listaPozycjiDTO);
+	 return fakturaDTO;
+	 }
 }

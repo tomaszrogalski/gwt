@@ -22,6 +22,10 @@ import com.google.gwt.view.client.DefaultSelectionEventManager;
 import com.google.gwt.view.client.MultiSelectionModel;
 import com.google.gwt.view.client.SingleSelectionModel;
 
+import rogalski.client.presenter.HomePresenter;
+import rogalski.client.presenter.MenuPresenter;
+import rogalski.client.presenter.WyswietlPozycjePresenter;
+import rogalski.client.presenter.DodajFakturePresenter;
 import rogalski.client.presenter.DodajFakturePresenter.DodajFaktureDisplay;
 import rogalski.shared.dto.FakturaDTO;
 import rogalski.shared.dto.KlientDTO;
@@ -59,6 +63,8 @@ public class DodajFaktureView extends Composite implements DodajFaktureDisplay {
 	@UiField
 	@Ignore
 	Label errorLabel;
+	
+	private DodajFakturePresenter presenter;
 
 	CheckboxCell checkBoxCell = new CheckboxCell();
 
@@ -72,27 +78,9 @@ public class DodajFaktureView extends Composite implements DodajFaktureDisplay {
 		stworzDataGridListaKlientow();
 	}
 
-	@UiHandler("buttonDodajNowyProdukt")
-	void dodajProdukt(ClickEvent e) {
-//		getUiHandlers().buttonAkcjaDodajProdukt();
+	
 
-	}
-
-	@UiHandler("buttonDodajNowaUsluge")
-	void dodajUsluge(ClickEvent e) {
-//		getUiHandlers().buttonAkcjaDodajUsluge();
-	}
-
-	@UiHandler("buttonDodajNowaFakture")
-	void dodajFakture(ClickEvent e) {
-//		if (waliduj()) {
-//			getUiHandlers().buttonAkcjaDodajFakture();
-//			errorLabel.setText("");
-//		} else {
-//			errorLabel.setText("Zaznacz minimum 1 pozycje i mininum 1 klienta");
-//		}
-	}
-
+	
 	public FakturaDTO odbierzZawartoscZGridITextBoxa() {
 		FakturaDTO fakturaDTO = new FakturaDTO();
 		fakturaDTO.setKlientDTO(simpleSelectionModel.getSelectedObject());
@@ -263,6 +251,38 @@ public class DodajFaktureView extends Composite implements DodajFaktureDisplay {
 
 	public DataGrid<KlientDTO> getDataGridListaKlientow() {
 		return dataGridListaKlientow;
+	}
+	@Override
+	public void setPresenter(DodajFakturePresenter presenter) {
+		this.presenter = presenter;
+
+	}
+	
+	@UiHandler("buttonDodajNowyProdukt")
+	void dodajProdukt(ClickEvent e) {
+		presenter.onDodajProduktButtonClicked();
+	}
+
+	@UiHandler("buttonDodajNowaUsluge")
+	void dodajUsluge(ClickEvent e) {
+		presenter.onDodajUslugeButtonClicked();
+	}
+
+	@UiHandler("buttonDodajNowaFakture")
+	void dodajFakture(ClickEvent e) {
+//		if (waliduj()) {
+//			getUiHandlers().buttonAkcjaDodajFakture();
+//			errorLabel.setText("");
+//		} else {
+//			errorLabel.setText("Zaznacz minimum 1 pozycje i mininum 1 klienta");
+//		}
+	}
+
+
+	
+
+	public HTMLPanel getHtmlPanelDodajPozycje() {
+		return htmlPanelDodajPozycje;
 	}
 
 	private boolean waliduj() {

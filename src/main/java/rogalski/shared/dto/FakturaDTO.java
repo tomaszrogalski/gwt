@@ -59,23 +59,23 @@ public class FakturaDTO {
 		this.listaPozycjiDTO = listaPozycjiDTO;
 	}
 
-//	public Faktura stworzFakture() {
-//		Faktura faktura = new Faktura();
-//		faktura.setKlient(getKlientDTO().stworzKlientaZIdNaPotrzebyFaktury());
-//		List<Pozycja> listaPozycji = new ArrayList<>();
-//		for (PozycjaDTO pozycjaDTO : listaPozycjiDTO) {
-//
-//			Pozycja pozycja = null;
-//
-//			if (pozycjaDTO.getTyp() == TypPozycji.PRODUKT) {
-//				pozycja = pozycjaDTO.stworzProdukt();
-//			} else if (pozycjaDTO.getTyp() == TypPozycji.USLUGA) {
-//				pozycja = pozycjaDTO.stworzUsluge();
-//			}
-//			pozycja.setFaktura(faktura);
-//			listaPozycji.add(pozycja);
-//		}
-//		faktura.setPozycja(listaPozycji);
-//		return faktura;
-//	}
+	public Faktura stworzFakture() {
+		Faktura faktura = new Faktura();
+		faktura.setKlient(getKlientDTO().stworzKlientaZIdNaPotrzebyFaktury());
+		List<Pozycja> listaPozycji = new ArrayList<>();
+		for (PozycjaDTO pozycjaDTO : listaPozycjiDTO) {
+
+			Pozycja pozycja = null;
+
+			if (pozycjaDTO.getTyp() == TypPozycji.PRODUKT) {
+				pozycja = pozycjaDTO.stworzProdukt();
+			} else if (pozycjaDTO.getTyp() == TypPozycji.USLUGA) {
+				pozycja = pozycjaDTO.stworzUsluge();
+			}
+			pozycja.setFaktura(faktura);
+			listaPozycji.add(pozycja);
+		}
+		faktura.setPozycja(listaPozycji);
+		return faktura;
+	}
 }

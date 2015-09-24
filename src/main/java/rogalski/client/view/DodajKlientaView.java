@@ -14,6 +14,9 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
+import rogalski.client.presenter.MenuPresenter;
+import rogalski.client.presenter.DodajFakturePresenter;
+import rogalski.client.presenter.DodajKlientaPresenter;
 import rogalski.client.presenter.DodajKlientaPresenter.DodajKlientaDisplay;
 import rogalski.shared.dto.AdresDTO;
 import rogalski.shared.dto.KlientDTO;
@@ -60,6 +63,8 @@ public class DodajKlientaView extends Composite implements DodajKlientaDisplay, 
 
 	@UiField
 	Button buttonDodaj;
+	
+	private DodajKlientaPresenter  presenter;
 
 	public Widget asWidget() {
 		return this;
@@ -87,10 +92,16 @@ public class DodajKlientaView extends Composite implements DodajKlientaDisplay, 
 		KlientDTO klientDTO = driver.flush();
 		return klientDTO;
 	}
+	@Override
+	public void setPresenter(DodajKlientaPresenter presenter) {
+		this.presenter = presenter;
+
+	}
 
 	@UiHandler("buttonDodaj")
 	void dodajClick(ClickEvent e) {
-		Window.alert("NIE DZIA£AM");
+		removeFromParent();
+		
 		// if (waliduj()) {
 		// getUiHandlers().buttonAkcjaDodajKlienta();
 		// driver.edit(new KlientDTO(null, null, new AdresDTO(null, null, null,

@@ -13,7 +13,11 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 
+import rogalski.client.presenter.MenuPresenter;
+import rogalski.client.presenter.WyswietlFakturyPresenter;
+import rogalski.client.presenter.WyswietlKlientowPresenter;
 import rogalski.client.presenter.WyswietlKlientowPresenter.WyswietlKlientowDisplay;
+import rogalski.client.presenter.WyswietlPozycjePresenter.WyswietlPozycjeDisplay;
 import rogalski.shared.dto.KlientDTO;
 
 public class WyswietlKlientowView extends Composite implements WyswietlKlientowDisplay {
@@ -22,7 +26,7 @@ public class WyswietlKlientowView extends Composite implements WyswietlKlientowD
 
 	interface WyswietlKlientowViewUiBinder extends UiBinder<Widget, WyswietlKlientowView> {
 	}
-	
+
 	@UiField
 	DataGrid<KlientDTO> dataGridWyswietlKlientow;
 
@@ -31,6 +35,8 @@ public class WyswietlKlientowView extends Composite implements WyswietlKlientowD
 
 	@UiField
 	HTMLPanel htmlPanelNaDodajKlienta;
+
+	private WyswietlKlientowPresenter presenter;
 
 	public WyswietlKlientowView() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -95,17 +101,26 @@ public class WyswietlKlientowView extends Composite implements WyswietlKlientowD
 
 	@UiHandler("buttonDodajNowegoKlienta")
 	void dodajClick(ClickEvent e) {
-		Window.alert("NIE DZIA£AM");
-//		getUiHandlers().buttonAkcjaDodajKlienta();
+		presenter.onWyswietlKlientowButtonClicked();
 	}
 
 	public DataGrid<KlientDTO> getDataGridWyswietlKlientow() {
 		return dataGridWyswietlKlientow;
 	}
 
-
 	public Widget asWidget() {
 		return this;
 	}
 
+	@Override
+	public void setPresenter(WyswietlKlientowPresenter presenter) {
+		this.presenter = presenter;
+
+	}
+
+	public HTMLPanel getHtmlPanelNaDodajKlienta() {
+		return htmlPanelNaDodajKlienta;
+	}
+	
+	
 }

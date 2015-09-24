@@ -1,5 +1,7 @@
 package rogalski.shared.dto;
 
+import rogalski.server.model.Adres;
+
 public class AdresDTO {
 //	@NotNull(message = "Kod pocztowy nie może być pusty.")
 	private String kodPocztowy;
@@ -60,8 +62,8 @@ public class AdresDTO {
 		this.miejscowosc = miejscowosc;
 	}
 
-//	public Adres stworzAdres() {
-//		Adres adres = new Adres(getUlica(), getNrDomu(), getKodPocztowy(), getMiejscowosc());
-//		return adres;
-//	}
+	public Adres stworzAdres() {
+		Adres adres = new Adres(getUlica(), getNrDomu(), getKodPocztowy(), getMiejscowosc());
+		return adres;
+	}
 }

@@ -59,7 +59,7 @@ public class MenuView extends Composite implements MenuDisplay {
 	@UiHandler("buttonWyswietlKlientow")
 
 	void wyswietlKlientow(ClickEvent e) {
-			presenter.onWyswietlKlientowButtonClicked();
+		presenter.onWyswietlKlientowButtonClicked();
 	}
 
 	@UiHandler("buttonWyswietlFaktury")
@@ -70,13 +70,7 @@ public class MenuView extends Composite implements MenuDisplay {
 
 	@UiHandler("buttonDodajNowaFakture")
 	void dodajNowaFakture(ClickEvent e) {
-		Window.alert("NIE DZIA£AM");
-		// if (presenter==null) {
-		// Window.alert("null");
-		// }
-		// else if (presenter!=null) {
-		// Window.alert("nie null");
-		// }
+		presenter.onDodajNowaFaktureButtonClicked();
 	}
 
 	@Override

@@ -1,5 +1,8 @@
 package rogalski.shared.dto;
 
+import rogalski.server.model.Produkt;
+import rogalski.server.model.Usluga;
+
 public class PozycjaDTO {
 
 	private Long id;
@@ -111,14 +114,14 @@ public class PozycjaDTO {
 		}
 	}
 
-//	public Produkt stworzProdukt() {
-//		Produkt produkt = new Produkt(getNazwa(), getVat(), getProduktDTO().getCena(),
-//				getProduktDTO().getJednostka().toString());
-//		return produkt;
-//	}
-//
-//	public Usluga stworzUsluge() {
-//		Usluga usluga = new Usluga(getNazwa(), getVat(), getUslugaDTO().getCenaZaGodzine());
-//		return usluga;
-//	}
+	public Produkt stworzProdukt() {
+		Produkt produkt = new Produkt(getNazwa(), getVat(), getProduktDTO().getCena(),
+				getProduktDTO().getJednostka().toString());
+		return produkt;
+	}
+
+	public Usluga stworzUsluge() {
+		Usluga usluga = new Usluga(getNazwa(), getVat(), getUslugaDTO().getCenaZaGodzine());
+		return usluga;
+	}
 }

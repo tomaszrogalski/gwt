@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
+import rogalski.server.model.Klient;
+
 public class KlientDTO {
 
 	private Long id;
@@ -80,13 +82,13 @@ public class KlientDTO {
 		this.listaFakturDTO = listaFakturDTO;
 	}
 
-//	public Klient stworzKlientaZIdNaPotrzebyFaktury() {
-//		Klient klient = new Klient(getId(), getImie(), getNazwisko(), getAdresDTO().stworzAdres());
-//		return klient;
-//	}
-//
-//	public Klient stworzKlienta() {
-//		Klient klient = new Klient(getImie(), getNazwisko(), getAdresDTO().stworzAdres());
-//		return klient;
-//	}
+	public Klient stworzKlientaZIdNaPotrzebyFaktury() {
+		Klient klient = new Klient(getId(), getImie(), getNazwisko(), getAdresDTO().stworzAdres());
+		return klient;
+	}
+
+	public Klient stworzKlienta() {
+		Klient klient = new Klient(getImie(), getNazwisko(), getAdresDTO().stworzAdres());
+		return klient;
+	}
 }

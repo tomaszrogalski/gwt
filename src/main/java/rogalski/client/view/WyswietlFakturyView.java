@@ -13,7 +13,6 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.dom.client.SelectElement;
 import com.google.gwt.safehtml.client.SafeHtmlTemplates;
-import com.google.gwt.safehtml.client.SafeHtmlTemplates.Template;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -24,6 +23,8 @@ import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 
+import rogalski.client.presenter.MenuPresenter;
+import rogalski.client.presenter.WyswietlFakturyPresenter;
 import rogalski.client.presenter.WyswietlFakturyPresenter.WyswietlFakturyDisplay;
 import rogalski.shared.dto.FakturaDTO;
 import rogalski.shared.dto.PozycjaDTO;
@@ -37,6 +38,9 @@ public class WyswietlFakturyView extends Composite implements WyswietlFakturyDis
 
 	@UiField
 	DataGrid<FakturaDTO> dataGridWyswietlFaktury;
+	
+	private WyswietlFakturyPresenter presenter;
+
 
 	public Widget asWidget() {
 		return this;
@@ -101,6 +105,11 @@ public class WyswietlFakturyView extends Composite implements WyswietlFakturyDis
 
 	public DataGrid<FakturaDTO> getDataGridWyswietlFaktury() {
 		return dataGridWyswietlFaktury;
+	}
+
+	@Override
+	public void setPresenter(WyswietlFakturyPresenter presenter) {
+		this.presenter = presenter;		
 	}
 
 }
@@ -203,6 +212,9 @@ class DynamicSelectionCell extends AbstractInputCell<String, String> {
 		}
 		sb.appendHtmlConstant("</select>");
 	}
+	
+	
+//	
 
 	private int getSelectedIndex(String value) {
 		Integer index = indexForOption.get(value);

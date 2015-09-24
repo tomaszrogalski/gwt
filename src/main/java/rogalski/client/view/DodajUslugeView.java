@@ -15,6 +15,8 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
+import rogalski.client.presenter.MenuPresenter;
+import rogalski.client.presenter.DodajUslugePresenter;
 import rogalski.client.presenter.DodajUslugePresenter.DodajUslugeDisplay;
 import rogalski.shared.dto.PozycjaDTO;
 import rogalski.shared.dto.UslugaDTO;
@@ -48,6 +50,9 @@ public class DodajUslugeView extends Composite implements DodajUslugeDisplay, Ed
 	@Ignore
 	Label errorLabel;
 	
+	private DodajUslugePresenter presenter;
+
+	
 	public DodajUslugeView() {
 		initWidget(uiBinder.createAndBindUi(this));
 		driver.initialize(this);
@@ -67,10 +72,16 @@ public class DodajUslugeView extends Composite implements DodajUslugeDisplay, Ed
 
 		return pozycjaDTO;
 	}
+	
+	@Override
+	public void setPresenter(DodajUslugePresenter presenter) {
+		this.presenter = presenter;
+
+	}
 
 	@UiHandler("buttonDodaj")
 	void dodajClick(ClickEvent e) {
-		Window.alert("NIE DZIALAM");
+		removeFromParent();
 	}
 //		if (waliduj()) {
 //			getUiHandlers().buttonAkcjaDodajUsluge();

@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+import rogalski.shared.dto.PozycjaDTO;
+import rogalski.shared.dto.UslugaDTO;
+
 @Entity
 @DiscriminatorValue(value = "usluga")
 public class Usluga extends Pozycja {
@@ -29,8 +32,8 @@ public class Usluga extends Pozycja {
 		return cenaZaGodzine;
 	}
 
-//	public PozycjaDTO stworzPozycjaDTO() {
-//
-//		return new PozycjaDTO(getNazwa(), getVat(), new UslugaDTO(getCenaZaGodzine()));
-//	}
+	public PozycjaDTO stworzPozycjaDTO() {
+
+		return new PozycjaDTO(getNazwa(), getVat(), new UslugaDTO(getCenaZaGodzine()));
+	}
 }

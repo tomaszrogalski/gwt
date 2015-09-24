@@ -12,6 +12,9 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 
+import rogalski.client.presenter.MenuPresenter;
+import rogalski.client.presenter.WyswietlFakturyPresenter;
+import rogalski.client.presenter.WyswietlPozycjePresenter;
 import rogalski.client.presenter.WyswietlPozycjePresenter.WyswietlPozycjeDisplay;
 import rogalski.shared.dto.PozycjaDTO;
 
@@ -33,6 +36,8 @@ public class WyswietlPozycjeView extends Composite implements WyswietlPozycjeDis
 
 	@UiField
 	HTMLPanel htmlPanelNaDodajProduktLubUsluge;
+
+	private WyswietlPozycjePresenter presenter;
 
 	public WyswietlPozycjeView() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -108,12 +113,12 @@ public class WyswietlPozycjeView extends Composite implements WyswietlPozycjeDis
 
 	@UiHandler("buttonDodajNowyProdukt")
 	void dodajProdukt(ClickEvent e) {
-//		getUiHandlers().buttonAkcjaDodajProdukt();
+		presenter.onDodajProduktButtonClicked();
 	}
 
 	@UiHandler("buttonDodajNowaUsluge")
 	void dodajUsluge(ClickEvent e) {
-//		getUiHandlers().buttonAkcjaDodajUsluge();
+		presenter.onDodajUslugeButtonClicked();
 	}
 
 	public DataGrid<PozycjaDTO> getDataGridWyswietlPozycje() {
@@ -123,4 +128,16 @@ public class WyswietlPozycjeView extends Composite implements WyswietlPozycjeDis
 	public Widget asWidget() {
 		return this;
 	}
+
+	@Override
+	public void setPresenter(WyswietlPozycjePresenter presenter) {
+		this.presenter = presenter;
+
+	}
+
+	public HTMLPanel getHtmlPanelNaDodajProduktLubUsluge() {
+		return htmlPanelNaDodajProduktLubUsluge;
+	}
+	
+	
 }

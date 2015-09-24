@@ -12,7 +12,5 @@
 			<g:HTMLPanel ui:field="panelMenu" />
 			<g:HTMLPanel ui:field="htmlPanelRoboczy" />
 		</g:HorizontalPanel>
-		<g:Button text="WYŚWIETL KLIENTÓW" ui:field="buttonWyswietlKlientow" />
-<g:TextBox ui:field="textBoxNazwa" />
 	</g:HTMLPanel>
 </ui:UiBinder> 
