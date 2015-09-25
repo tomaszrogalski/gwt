@@ -1,48 +1,51 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with field="resources" type="rogalski.client.resources.AppResources" />
 
-	<g:HTMLPanel>
+	<g:HTMLPanel styleName="{resources.style.dodaj_html_panel}">
 		<h1>DODAJ KLIENTA</h1>
 		<hr />
 
-		<g:HorizontalPanel>
-			<g:Label text="IMIE" />
+		<g:HorizontalPanel styleName="{resources.style.dodaj_horizontal_panel}">
+			<g:Label text="IMIE" styleName="{resources.style.label}" />
 			<g:TextBox ui:field="textBoxImie" />
 		</g:HorizontalPanel>
 
-		<g:HorizontalPanel>
-			<g:Label text="NAZWISKO" />
+		<g:HorizontalPanel styleName="{resources.style.dodaj_horizontal_panel}">
+			<g:Label text="NAZWISKO" styleName="{resources.style.label}" />
 			<g:TextBox ui:field="textBoxNazwisko" />
 		</g:HorizontalPanel>
 
-		<g:HorizontalPanel>
-			<g:Label text="ULICA" />
+		<g:HorizontalPanel styleName="{resources.style.dodaj_horizontal_panel}">
+			<g:Label text="ULICA" styleName="{resources.style.label}" />
 			<g:TextBox ui:field="textBoxUlica" />
 		</g:HorizontalPanel>
 
-		<g:HorizontalPanel>
-			<g:Label text="NR DOMU" />
+		<g:HorizontalPanel styleName="{resources.style.dodaj_horizontal_panel}">
+			<g:Label text="NR DOMU" styleName="{resources.style.label}" />
 			<g:TextBox ui:field="textBoxNrDomu" />
 		</g:HorizontalPanel>
 
-		<g:HorizontalPanel>
-			<g:Label text="MIEJSCOWOSC" />
+		<g:HorizontalPanel styleName="{resources.style.dodaj_horizontal_panel}">
+			<g:Label text="MIEJSCOWOSC" styleName="{resources.style.label}" />
 			<g:TextBox ui:field="textBoxMiejscowosc" />
 		</g:HorizontalPanel>
 
-		<g:HorizontalPanel>
-			<g:Label text="KOD POCZTOWY" />
+		<g:HorizontalPanel styleName="{resources.style.dodaj_horizontal_panel}">
+			<g:Label text="KOD POCZTOWY" styleName="{resources.style.label}" />
 			<g:TextBox ui:field="textBoxKodPocztowy" />
 		</g:HorizontalPanel>
 
-		<g:HorizontalPanel>
-			<g:Label text="" ui:field="errorLabel" />
+		<g:HorizontalPanel styleName="{resources.style.dodaj_horizontal_panel}">
+			<g:Label text="" styleName="{resources.style.errorLabel}"
+				ui:field="errorLabel" />
 		</g:HorizontalPanel>
 		<hr />
 
-		<g:HorizontalPanel>
-			<g:Button text="DODAJ" ui:field="buttonDodaj" />
+		<g:HorizontalPanel styleName="{resources.style.horizontal_panel_buttony}">
+			<g:Button text="DODAJ" ui:field="buttonDodaj"
+				styleName="{resources.style.buttony_wyswietl_dodaj}" />
 		</g:HorizontalPanel>
 		<br />
 

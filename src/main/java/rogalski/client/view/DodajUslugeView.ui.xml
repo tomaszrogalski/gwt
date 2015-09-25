@@ -1,35 +1,39 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
-	<g:HTMLPanel>
+	<ui:with field="resources" type="rogalski.client.resources.AppResources" />
+	
+	<g:HTMLPanel styleName="{resources.style.dodaj_html_panel}">
 		<h1>DODAJ USLUGE</h1>
 		<hr />
 
-		<g:HorizontalPanel>
-			<g:Label text="NAZWA" />
-			<g:TextBox ui:field="textBoxNazwa" />
+		<g:HorizontalPanel styleName="{resources.style.dodaj_horizontal_panel}">
+			<g:Label text="NAZWA" styleName="{resources.style.label}"/>
+			<g:TextBox ui:field="textBoxNazwa"/>
 		</g:HorizontalPanel>
 
-		<g:HorizontalPanel>
-			<g:Label text="CENA/H" />
-			<g:DoubleBox ui:field="doubleBoxCenaZaGodzine" />
-			<g:Label text=" ZŁ/GODZINE" />
+		<g:HorizontalPanel styleName="{resources.style.dodaj_horizontal_panel}">
+			<g:Label text="CENA/H" styleName="{resources.style.label}"/>
+			<g:DoubleBox ui:field="doubleBoxCenaZaGodzine"/>
+			<g:Label text=" ZŁ/GODZINE" styleName="{resources.style.label}"/>
 		</g:HorizontalPanel>
 
-		<g:HorizontalPanel>
-			<g:Label text="VAT" />
+		<g:HorizontalPanel styleName="{resources.style.dodaj_horizontal_panel}">
+			<g:Label text="VAT" styleName="{resources.style.label}"/>
 			<g:DoubleBox ui:field="doubleBoxVAT" />
-			<g:Label text=" %" />
+			<g:Label text=" %" styleName="{resources.style.label}"/>
 		</g:HorizontalPanel>
-		<g:HorizontalPanel>
-			<g:Label text="" ui:field="errorLabel" />
+	<g:HorizontalPanel styleName="{resources.style.dodaj_horizontal_panel}">
+			<g:Label text="" styleName="{resources.style.errorLabel}"
+				ui:field="errorLabel" />
 		</g:HorizontalPanel>
 		<hr />
 
-		<g:HorizontalPanel>
-			<g:Button text="DODAJ" ui:field="buttonDodaj" />
+		<g:HorizontalPanel
+			styleName="{resources.style.horizontal_panel_buttony}">
+			<g:Button text="DODAJ" ui:field="buttonDodaj" styleName="{resources.style.buttony_wyswietl_dodaj}"/>
 		</g:HorizontalPanel>
-		<br />
+		<br/>
 
 	</g:HTMLPanel>
-</ui:UiBinder> 
+</ui:UiBinder>

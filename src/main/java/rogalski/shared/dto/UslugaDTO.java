@@ -11,8 +11,8 @@ public class UslugaDTO implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@NotNull(message = "Cena/h nie może być pusta. ")
-	@Min(value = 0, message = "Cena/h musi być cyfra > 0. ")
+	@NotNull(message = "Cena/h nie moze byc pusta. ")
+	@Min(value = 0, message = "Cena/h musi byc cyfra > 0. ")
 	private Double cenaZaGodzine;
 
 	/////////////////////////////////
@@ -38,7 +38,7 @@ public class UslugaDTO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "CenaZaGodzine: " + cenaZaGodzine + "zł/h";
+		return "CenaZaGodzine: " + cenaZaGodzine + "zl/h";
 	}
 
 }

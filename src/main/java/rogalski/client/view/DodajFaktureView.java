@@ -24,6 +24,7 @@ import com.google.gwt.view.client.SingleSelectionModel;
 
 import rogalski.client.presenter.DodajFakturePresenter;
 import rogalski.client.presenter.DodajFakturePresenter.DodajFaktureDisplay;
+import rogalski.client.resources.AppResources;
 import rogalski.shared.dto.FakturaDTO;
 import rogalski.shared.dto.KlientDTO;
 import rogalski.shared.dto.PozycjaDTO;
@@ -60,7 +61,7 @@ public class DodajFaktureView extends Composite implements DodajFaktureDisplay {
 	@UiField
 	@Ignore
 	Label errorLabel;
-	
+
 	private DodajFakturePresenter presenter;
 
 	CheckboxCell checkBoxCell = new CheckboxCell();
@@ -73,11 +74,9 @@ public class DodajFaktureView extends Composite implements DodajFaktureDisplay {
 		initWidget(uiBinder.createAndBindUi(this));
 		stworzDataGridListaPozycji();
 		stworzDataGridListaKlientow();
+		AppResources.INSTANCE.style().ensureInjected();
 	}
 
-	
-
-	
 	public FakturaDTO odbierzZawartoscZGridITextBoxa() {
 		FakturaDTO fakturaDTO = new FakturaDTO();
 		fakturaDTO.setKlientDTO(simpleSelectionModel.getSelectedObject());
@@ -158,7 +157,7 @@ public class DodajFaktureView extends Composite implements DodajFaktureDisplay {
 		dataGridListaKlientow.addColumn(textColumnNazwisko, "NAZWISKO");
 		dataGridListaKlientow.addColumn(textColumnUlica, "ULICA");
 		dataGridListaKlientow.addColumn(textColumnNrDomu, "NR DOMU");
-		dataGridListaKlientow.addColumn(textColumnMiejscowosc, "MIEJSCOWOŒÆ");
+		dataGridListaKlientow.addColumn(textColumnMiejscowosc, "MIEJSCOWOSC");
 		dataGridListaKlientow.addColumn(textColumnKodPocztowy, "KOD POCZTOWY");
 	}
 
@@ -236,8 +235,8 @@ public class DodajFaktureView extends Composite implements DodajFaktureDisplay {
 		dataGridListaPozycji.addColumn(checkColumn, "*");
 		dataGridListaPozycji.addColumn(textColumnTyp, "TYP");
 		dataGridListaPozycji.addColumn(textColumnNazwa, "NAZWA");
-		dataGridListaPozycji.addColumn(textColumnCena, "CENA(z³)");
-		dataGridListaPozycji.addColumn(textColumnCenaZaGodzine, "CENA ZA GODZINE(z³/h)");
+		dataGridListaPozycji.addColumn(textColumnCena, "CENA(zl)");
+		dataGridListaPozycji.addColumn(textColumnCenaZaGodzine, "CENA ZA GODZINE(zl/h)");
 		dataGridListaPozycji.addColumn(textColumnJednostka, "JEDNOSTKA");
 		dataGridListaPozycji.addColumn(textColumnVat, "VAT(%)");
 	}
@@ -249,12 +248,13 @@ public class DodajFaktureView extends Composite implements DodajFaktureDisplay {
 	public DataGrid<KlientDTO> getDataGridListaKlientow() {
 		return dataGridListaKlientow;
 	}
+
 	@Override
 	public void setPresenter(DodajFakturePresenter presenter) {
 		this.presenter = presenter;
 
 	}
-	
+
 	@UiHandler("buttonDodajNowyProdukt")
 	void dodajProdukt(ClickEvent e) {
 		presenter.onDodajProduktButtonClicked();
@@ -267,29 +267,26 @@ public class DodajFaktureView extends Composite implements DodajFaktureDisplay {
 
 	@UiHandler("buttonDodajNowaFakture")
 	void dodajFakture(ClickEvent e) {
-		presenter.onDodajFaktureButtonClicked();
-		removeFromParent();
-//		if (waliduj()) {
-//			getUiHandlers().buttonAkcjaDodajFakture();
-//			errorLabel.setText("");
-//		} else {
-//			errorLabel.setText("Zaznacz minimum 1 pozycje i mininum 1 klienta");
-//		}
+
+		if (waliduj()) {
+			presenter.onDodajFaktureButtonClicked();
+			removeFromParent();
+			errorLabel.setText("");
+		} else {
+			errorLabel.setText("Zaznacz minimum 1 pozycje i mininum 1 klienta");
+		}
 	}
-
-
-	
 
 	public HTMLPanel getHtmlPanelDodajPozycje() {
 		return htmlPanelDodajPozycje;
 	}
 
-//	private boolean waliduj() {
-//		if (simpleSelectionModel.getSelectedObject() != null && !multiSelectionModel.getSelectedSet().isEmpty()) {
-//			return true;
-//		} else {
-//			return false;
-//		}
-//	}
+	private boolean waliduj() {
+		if (simpleSelectionModel.getSelectedObject() != null && !multiSelectionModel.getSelectedSet().isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 }

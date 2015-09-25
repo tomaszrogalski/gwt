@@ -26,6 +26,7 @@ import com.google.gwt.user.client.ui.Widget;
 import rogalski.client.presenter.MenuPresenter;
 import rogalski.client.presenter.WyswietlFakturyPresenter;
 import rogalski.client.presenter.WyswietlFakturyPresenter.WyswietlFakturyDisplay;
+import rogalski.client.resources.AppResources;
 import rogalski.shared.dto.FakturaDTO;
 import rogalski.shared.dto.PozycjaDTO;
 
@@ -49,6 +50,7 @@ public class WyswietlFakturyView extends Composite implements WyswietlFakturyDis
 	public WyswietlFakturyView() {
 		initWidget(uiBinder.createAndBindUi(this));
 		stworzDataGrid();
+		AppResources.INSTANCE.style().ensureInjected();
 
 	}
 

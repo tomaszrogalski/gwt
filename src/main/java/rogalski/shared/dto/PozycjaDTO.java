@@ -2,6 +2,10 @@ package rogalski.shared.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 import rogalski.server.model.Produkt;
 import rogalski.server.model.Usluga;
 
@@ -14,12 +18,12 @@ public class PozycjaDTO implements Serializable {
 
 	private Long id;
 
-//	@NotNull(message = "Nazwa nie może być pusta.")
+	@NotNull(message = "Nazwa nie moze byc pusta.")
 	private String nazwa;
 
-//	@NotNull(message = "Vat nie może być pusty. ")
-//	@Min(value = 0, message = "Vat musi być >0. ")
-//	@Max(value = 100, message = "Vat musi być <100. ")
+	@NotNull(message = "Vat nie moze byc pusty. ")
+	@Min(value = 0, message = "Vat musi byc >0. ")
+	@Max(value = 100, message = "Vat musi byc <100. ")
 	private Double vat;
 
 	private TypPozycji typ;

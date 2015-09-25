@@ -1,16 +1,20 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:my="urn:import:rogalski.client.view">
-	
-	<g:HTMLPanel>
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with field="resources" type="rogalski.client.resources.AppResources" />
+
+	<g:HTMLPanel styleName="{resources.style.home_html_panel_glowny}">
 		<h1>
 			FAKTUROWANIE
 		</h1>
 		<hr />
 
 		<g:HorizontalPanel>
-			<g:HTMLPanel ui:field="panelMenu" />
-			<g:HTMLPanel ui:field="htmlPanelRoboczy" />
+			<g:HTMLPanel ui:field="panelMenu"
+				styleName="{resources.style.home_html_panel_menu}"></g:HTMLPanel>
+
+			<g:HTMLPanel ui:field="htmlPanelRoboczy"
+				styleName="{resources.style.home_html_panel_roboczy}"></g:HTMLPanel>
 		</g:HorizontalPanel>
 	</g:HTMLPanel>
-</ui:UiBinder> 
+</ui:UiBinder>

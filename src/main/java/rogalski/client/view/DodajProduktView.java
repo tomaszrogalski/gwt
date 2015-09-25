@@ -3,6 +3,12 @@ package rogalski.client.view;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.editor.client.Editor;
@@ -24,6 +30,7 @@ import com.google.gwt.user.client.ui.Widget;
 import rogalski.client.presenter.MenuPresenter;
 import rogalski.client.presenter.DodajProduktPresenter;
 import rogalski.client.presenter.DodajProduktPresenter.DodajProduktDisplay;
+import rogalski.client.resources.AppResources;
 import rogalski.shared.dto.Jednostka;
 import rogalski.shared.dto.PozycjaDTO;
 import rogalski.shared.dto.ProduktDTO;
@@ -34,10 +41,14 @@ public class DodajProduktView extends Composite implements DodajProduktDisplay, 
 
 	interface DodajProduktViewUiBinder extends UiBinder<Widget, DodajProduktView> {
 	}
+
 	interface Driver extends SimpleBeanEditorDriver<PozycjaDTO, DodajProduktView> {
 	}
+
 	Driver driver = GWT.create(Driver.class);
-	
+	private ValidatorFactory factory = Validation.byDefaultProvider().configure().buildValidatorFactory();
+	Validator validator = this.factory.getValidator();
+
 	@UiField
 	@Path("nazwa")
 	TextBox textBoxNazwa;
@@ -73,17 +84,16 @@ public class DodajProduktView extends Composite implements DodajProduktDisplay, 
 	@UiField
 	@Ignore
 	Label errorLabel;
-	
-	private DodajProduktPresenter presenter;
 
+	private DodajProduktPresenter presenter;
 
 	public Widget asWidget() {
 		return this;
 	}
-	
+
 	public DodajProduktView() {
 		initWidget(uiBinder.createAndBindUi(this));
-		
+		AppResources.INSTANCE.style().ensureInjected();
 		driver.initialize(this);
 		driver.edit(new PozycjaDTO(null, null, new ProduktDTO(null, null)));
 
@@ -91,7 +101,7 @@ public class DodajProduktView extends Composite implements DodajProduktDisplay, 
 
 		zapelnijValueListBox();
 	}
-	
+
 	public void zapelnijValueListBox() {
 		valueListBoxJednostka.setValue(Jednostka.KILOGRAM);
 
@@ -120,15 +130,36 @@ public class DodajProduktView extends Composite implements DodajProduktDisplay, 
 		this.presenter = presenter;
 
 	}
-	
+
 	@UiHandler("buttonDodaj")
 	void dodajClick(ClickEvent e) {
-		presenter.onDodajProduktButtonClicked();
-		removeFromParent();
-//		if (waliduj()) {
-//			getUiHandlers().buttonAkcjaDodajProdukt();
-//			driver.edit(new PozycjaDTO(null, null, new ProduktDTO(null, null)));
-//		}
+
+		if (waliduj()) {
+			presenter.onDodajProduktButtonClicked();
+			removeFromParent();
+			driver.edit(new PozycjaDTO(null, null, new ProduktDTO(null, null)));
+		}
+	}
+
+	private boolean waliduj() {
+		PozycjaDTO pozycjaDTO = driver.flush();
+		Set<ConstraintViolation<PozycjaDTO>> violations = validator.validate(pozycjaDTO);
+		Set<ConstraintViolation<ProduktDTO>> violations2 = validator.validate(pozycjaDTO.getProduktDTO());
+		StringBuilder builder = new StringBuilder();
+		for (ConstraintViolation<PozycjaDTO> violation : violations) {
+			builder.append(violation.getMessage());
+		}
+		for (ConstraintViolation<ProduktDTO> violation : violations2) {
+			builder.append(violation.getMessage());
+		}
+
+		errorLabel.setText(builder.toString());
+
+		if (violations.isEmpty() && violations2.isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

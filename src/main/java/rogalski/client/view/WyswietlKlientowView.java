@@ -18,6 +18,7 @@ import rogalski.client.presenter.WyswietlFakturyPresenter;
 import rogalski.client.presenter.WyswietlKlientowPresenter;
 import rogalski.client.presenter.WyswietlKlientowPresenter.WyswietlKlientowDisplay;
 import rogalski.client.presenter.WyswietlPozycjePresenter.WyswietlPozycjeDisplay;
+import rogalski.client.resources.AppResources;
 import rogalski.shared.dto.KlientDTO;
 
 public class WyswietlKlientowView extends Composite implements WyswietlKlientowDisplay {
@@ -41,6 +42,7 @@ public class WyswietlKlientowView extends Composite implements WyswietlKlientowD
 	public WyswietlKlientowView() {
 		initWidget(uiBinder.createAndBindUi(this));
 		stworzDataGrid();
+		AppResources.INSTANCE.style().ensureInjected();
 
 	}
 
@@ -95,7 +97,7 @@ public class WyswietlKlientowView extends Composite implements WyswietlKlientowD
 		dataGridWyswietlKlientow.addColumn(textColumnNazwisko, "NAZWISKO");
 		dataGridWyswietlKlientow.addColumn(textColumnUlica, "ULICA");
 		dataGridWyswietlKlientow.addColumn(textColumnNrDomu, "NR DOMU");
-		dataGridWyswietlKlientow.addColumn(textColumnMiejscowosc, "MIEJSCOWOŒÆ");
+		dataGridWyswietlKlientow.addColumn(textColumnMiejscowosc, "MIEJSCOWOSC");
 		dataGridWyswietlKlientow.addColumn(textColumnKodPocztowy, "KOD POCZTOWY");
 	}
 

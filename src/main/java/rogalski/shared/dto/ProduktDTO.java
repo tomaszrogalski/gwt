@@ -12,8 +12,8 @@ public class ProduktDTO  implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@NotNull(message = "Cena nie może być pusta. ")
-	@Min(value = 0, message = "Cena musi być cyfra > 0. ")
+	@NotNull(message = "Cena nie moze byc pusta. ")
+	@Min(value = 0, message = "Cena musi byc cyfra > 0. ")
 	private Double cena;
 
 	private Jednostka jednostka;
@@ -50,6 +50,6 @@ public class ProduktDTO  implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Cena: " + cena + "zł, Jednostka: " + jednostka.getSkrotJednostki();
+		return "Cena: " + cena + "zl, Jednostka: " + jednostka.getSkrotJednostki();
 	}
 }

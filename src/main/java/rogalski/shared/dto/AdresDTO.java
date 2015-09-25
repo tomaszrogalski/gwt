@@ -2,23 +2,25 @@ package rogalski.shared.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotNull;
+
 import rogalski.server.model.Adres;
 
-public class AdresDTO implements Serializable{
-/**
-	 * 
-	 */
+public class AdresDTO implements Serializable {
+	/**
+		 * 
+		 */
 	private static final long serialVersionUID = 1L;
 
-	//	@NotNull(message = "Kod pocztowy nie może być pusty.")
+	@NotNull(message = "Kod pocztowy nie moze byc pusty.")
 	private String kodPocztowy;
 
 	private String ulica;
 
-//	@NotNull(message = "Nr domu nie może być pusty.")
+	@NotNull(message = "Nr domu nie moze byc pusty.")
 	private String nrDomu;
 
-//	@NotNull(message = "Miejscowosc nie może być pusta.")
+	@NotNull(message = "Miejscowosc nie moze byc pusta.")
 	private String miejscowosc;
 
 	/////////////////////////////////

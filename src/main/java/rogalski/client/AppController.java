@@ -20,6 +20,7 @@ import rogalski.client.presenter.DodajFakturePresenter;
 import rogalski.client.presenter.DodajKlientaPresenter;
 import rogalski.client.presenter.DodajProduktPresenter;
 import rogalski.client.presenter.DodajUslugePresenter;
+import rogalski.client.presenter.ErrorPresenter;
 import rogalski.client.presenter.HomePresenter;
 import rogalski.client.presenter.HomePresenter.HomeDisplay;
 import rogalski.client.presenter.MenuPresenter;
@@ -71,42 +72,18 @@ public class AppController implements Presenter, ValueChangeHandler<String> {
 
 	}
 
-	
-
-	private void odpalMenuInHome() {
-		//
-		// menuDisplay = new MenuView();
-		// MenuPresenter presenter = new MenuPresenter(rpcService, eventBus,
-		// menuDisplay);
-		// presenter.go(kontener);
-		// homePresenter.go(kontener);
-		// homePresenter.dodajDoPaneluMenu(presenter.getDisplay().asWidget());
-	}
-
-	// private void odpalHome() {
-	//
-	// homePresenter.go(kontener);
-	//
-	// }
-
-	// private void odpalMenu() {
-	//
-	// menuDisplay = new MenuView();
-	// MenuPresenter presenter = new MenuPresenter(rpcService, eventBus,
-	// menuDisplay);
-	// presenter.go(kontener);
-	//
-	// }
-
 	@Override
 	public void go(final HasWidgets kontener) {
 		this.kontener = kontener;
 
 		if (History.getToken().equals("")) {
 			History.newItem("home");
+			// && !History.getToken().equals("home")
+		} else if (!History.getToken().equals("home")) {
+			if (!History.getToken().equals("")) {
+				History.newItem("error");
 
-		} else if (!History.getToken().equals("") && !History.getToken().equals("home")) {
-			History.newItem("error");
+			}
 
 		} else {
 			History.fireCurrentHistoryState();
@@ -312,7 +289,9 @@ public class AppController implements Presenter, ValueChangeHandler<String> {
 		homePresenter.go(kontener);
 		homePresenter.dodajDoPaneluMenu(presenter.getDisplay().asWidget());
 	}
-	
+
 	private void DodajDoPaneluStartowegoError() {
+		ErrorPresenter errorPresenter = new ErrorPresenter(rpcService, eventBus, new ErrorView());
+		errorPresenter.go(kontener);
 	}
 }

@@ -3,17 +3,21 @@ package rogalski.client.presenter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.user.cellview.client.DataGrid;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 
+import rogalski.client.FakturowanieService;
 import rogalski.client.FakturowanieServiceAsync;
 import rogalski.client.event.DodajDoWyswietlPozycjeDodajProduktEvent;
 import rogalski.client.event.DodajDoWyswietlPozycjeDodajUslugiEvent;
 import rogalski.client.event.DodajOstatnioDodanaPozycjeDoWyswietleniaEvent;
+import rogalski.shared.dto.KlientDTO;
 import rogalski.shared.dto.PozycjaDTO;
 
 public class WyswietlPozycjePresenter implements Presenter {
@@ -26,11 +30,13 @@ public class WyswietlPozycjePresenter implements Presenter {
 		public HTMLPanel getHtmlPanelNaDodajProduktLubUsluge();
 
 		DataGrid<PozycjaDTO> getDataGridWyswietlPozycje();
+
 	}
 
 	private final FakturowanieServiceAsync rpcService;
 	private final HandlerManager eventBus;
 	private final WyswietlPozycjeDisplay display;
+	private final FakturowanieServiceAsync fakturowanieServiceAsync = GWT.create(FakturowanieService.class);
 
 	public WyswietlPozycjePresenter(FakturowanieServiceAsync rpcService, HandlerManager eventBus,
 			WyswietlPozycjeDisplay display) {
@@ -40,6 +46,7 @@ public class WyswietlPozycjePresenter implements Presenter {
 		this.display = display;
 		this.display.setPresenter(this);
 		bind();
+		dodajDoGrida();
 	}
 
 	private void bind() {
@@ -57,6 +64,22 @@ public class WyswietlPozycjePresenter implements Presenter {
 					}
 				});
 
+	}
+
+	private void dodajDoGrida() {
+		fakturowanieServiceAsync.wczytajWszystkiePozycje(new AsyncCallback<List<PozycjaDTO>>() {
+
+			@Override
+			public void onFailure(Throwable caught) {
+				Window.alert("COS NIE DZIA£A - WCZYTAJ KLIENTA");
+			}
+
+			@Override
+			public void onSuccess(List<PozycjaDTO> result) {
+				display.getDataGridWyswietlPozycje().setRowData(result);
+			}
+
+		});
 	}
 
 	@Override

@@ -14,6 +14,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 import rogalski.client.presenter.MenuPresenter;
 import rogalski.client.presenter.MenuPresenter.MenuDisplay;
+import rogalski.client.resources.AppResources;
 
 public class MenuView extends Composite implements MenuDisplay {
 
@@ -24,7 +25,7 @@ public class MenuView extends Composite implements MenuDisplay {
 	}
 
 	private MenuPresenter presenter;
-
+	
 	@UiField
 	Button buttonWyswietlKlientow;
 
@@ -43,7 +44,7 @@ public class MenuView extends Composite implements MenuDisplay {
 	public MenuView() {
 		initWidget(uiBinder.createAndBindUi(this));
 		verticalPanel.getElement().setAttribute("align", "center");
-
+		AppResources.INSTANCE.style().ensureInjected();
 	}
 
 	@Override

@@ -1,9 +1,12 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
-	<g:HTMLPanel>
+
+	<ui:with field="resources" type="rogalski.client.resources.AppResources" />
+
+	<g:HTMLPanel styleName="{resources.style.error_page}">
 		<hr />
 		<h1>ERROR</h1>
 		<hr />
 	</g:HTMLPanel>
-</ui:UiBinder> 
+</ui:UiBinder>

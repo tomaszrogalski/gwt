@@ -14,6 +14,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 import rogalski.client.presenter.HomePresenter;
 import rogalski.client.presenter.HomePresenter.HomeDisplay;
+import rogalski.client.resources.AppResources;
 
 public class HomeView extends Composite implements HomeDisplay {
 
@@ -32,6 +33,7 @@ public class HomeView extends Composite implements HomeDisplay {
 
 	public HomeView() {
 		initWidget(uiBinder.createAndBindUi(this));
+		AppResources.INSTANCE.style().ensureInjected();
 	}
 
 	public HTMLPanel getPanelMenu() {

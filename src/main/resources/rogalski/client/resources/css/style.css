@@ -1,0 +1,125 @@
+h1 {
+	color: #606060;
+	text-align: center;
+	text-shadow: 2px 2px yellow;
+}
+
+.home_html_panel_glowny {
+	background-color: #D0D0D0;
+	position: fixed;
+	width: 98%;
+	height: 98%;
+	padding: 1%;
+}
+
+.home_html_panel_menu {
+	position: fixed;
+	width: 19%;
+	height: 84%;
+	display: block;
+	float: left;
+}
+
+.errorLabel {
+	color: red;
+}
+
+.home_html_panel_roboczy {
+	position: fixed;
+	background-color: #C0C0C0;
+	width: 76%;
+	height: 84%;
+	display: block;
+	float: left;
+	left: 21%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding-left: 1%;
+	padding-right: 1%;
+}
+
+.valueListBox {
+	width: 143px;
+	height: 23px;
+}
+
+.menu_html_Panel {
+	position: absolute;
+	background-color: #C0C0C0;
+	width: 100%;
+	height: 100%;
+}
+
+.menu_button_rozmiary {
+	background-color: #888888;
+	margin-top: 20px;
+	height: 50px;
+	width: 100%;
+	color: #F8F8F8;
+	border-style: none;
+	outline: 0;
+}
+
+.buttony_wyswietl_dodaj:HOVER {
+	color: yellow;
+	border-width: 1px;
+	border-style: solid;
+	border-color: yellow;
+}
+
+.menu_button_rozmiary:HOVER {
+	color: yellow;
+	border-width: 1px;
+	border-style: solid;
+	border-color: yellow;
+}
+
+.buttony_wyswietl_dodaj {
+	background-color: #888888;
+	color: #F8F8F8;
+	border-style: none;
+	height: 30px;
+	width: 150px;
+	margin-left: 5px;
+	border-style: none;
+	outline: none;
+}
+
+.menu_vertical_panel {
+	
+}
+
+.wyswietl_html_panel {
+	background-color: #C0C0C0;
+	width: 100%;
+	height: 100%
+}
+
+.horizontal_panel_buttony {
+	float: right;
+	padding-bottom: 1%;
+}
+
+.error_page {
+	background-color: #C0C0C0;
+	width: 100%;
+	height: 100%;
+}
+
+.dodaj_html_panel {
+	padding-top: 1%;
+	background-color: #C0C0C0;
+	width: 100%;
+	height: 100%;
+}
+
+.label {
+	width: 150px;
+	height: 20px;
+	padding-top: 3px;
+	margin-left: 3px;
+}
+
+.dodaj_horizontal_panel {
+	padding: 15px;
+}

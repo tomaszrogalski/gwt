@@ -16,6 +16,7 @@ import rogalski.client.presenter.MenuPresenter;
 import rogalski.client.presenter.WyswietlFakturyPresenter;
 import rogalski.client.presenter.WyswietlPozycjePresenter;
 import rogalski.client.presenter.WyswietlPozycjePresenter.WyswietlPozycjeDisplay;
+import rogalski.client.resources.AppResources;
 import rogalski.shared.dto.PozycjaDTO;
 
 public class WyswietlPozycjeView extends Composite implements WyswietlPozycjeDisplay {
@@ -42,6 +43,7 @@ public class WyswietlPozycjeView extends Composite implements WyswietlPozycjeDis
 	public WyswietlPozycjeView() {
 		initWidget(uiBinder.createAndBindUi(this));
 		stworzDataGrid();
+		AppResources.INSTANCE.style().ensureInjected();
 	}
 
 	private void stworzDataGrid() {
@@ -104,8 +106,8 @@ public class WyswietlPozycjeView extends Composite implements WyswietlPozycjeDis
 		dataGridWyswietlPozycje.setHeight("300px");
 		dataGridWyswietlPozycje.addColumn(textColumnTyp, "TYP");
 		dataGridWyswietlPozycje.addColumn(textColumnNazwa, "NAZWA");
-		dataGridWyswietlPozycje.addColumn(textColumnCena, "CENA(z³)");
-		dataGridWyswietlPozycje.addColumn(textColumnCenaZaGodzine, "CENA ZA GODZINE(z³/h)");
+		dataGridWyswietlPozycje.addColumn(textColumnCena, "CENA(zl)");
+		dataGridWyswietlPozycje.addColumn(textColumnCenaZaGodzine, "CENA ZA GODZINE(zl/h)");
 		dataGridWyswietlPozycje.addColumn(textColumnJednostka, "JEDNOSTKA");
 		dataGridWyswietlPozycje.addColumn(textColumnVat, "VAT(%)");
 
